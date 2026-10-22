@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { HomeContainer } from '../styles/Home.styled.js'
 import { Subtitle, Title } from '../styles/General.styled.js'
-import { PlayButton } from '../components/Game/PlayButton.jsx'
+import { PlayButton } from '../components/Game/ActionButtons.jsx'
 
 export const Home = () => {
     const navigate = useNavigate()
