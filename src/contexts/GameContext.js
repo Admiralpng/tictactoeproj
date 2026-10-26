@@ -48,28 +48,28 @@ export const GameContextProvider = (props) => {
 
     const roundComplete = (result) => {
         if(gameState.turn === gameState.player1.char && result !== "draw"){
-            setGameState({
+            setGameState((prevGameState) =>({
                 ...gameState,
                 board: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 player1: {
-                    char: "X",
+                    char: prevGameState.player1.char,
                     name: "Player 1",
                     score: gameState.player1.score+1
                 },
                 turn: "X"
-            })
+            }))
         }
         else if(gameState.turn === gameState.player2.char && result !== "draw"){
-            setGameState({
+            setGameState((prevGameState) =>({
                 ...gameState,
                 board: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 player2: {
-                    char: "O",
+                    char: prevGameState.player2.char,
                     name: "Player 2",
                     score: gameState.player2.score+1
                 },
                 turn: "X"
-            })
+            }))
         }
         // Draw Con
         else {
@@ -84,7 +84,8 @@ export const GameContextProvider = (props) => {
                 ...prevGameState.player2,
                 score: prevGameState.player2.score + 0.5
             },
-            turn: "X"
+            turn: "X",
+            result:"draw",
         }))
         }
     }
@@ -96,7 +97,7 @@ export const GameContextProvider = (props) => {
             player1: {
                 ...prevGameState.player1,
                 char: toggleChoice(prevGameState.player1.char),
-                score: prevGameState.player2.score,
+                score: prevGameState.player1.score,
             },
             player2: {
                 ...prevGameState.player2,
