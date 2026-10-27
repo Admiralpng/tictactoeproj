@@ -8,12 +8,14 @@ export const GameContextProvider = (props) => {
         player1: {
             char: "X",
             name: "Player 1",
-            score: 0
+            score: 0,
+            avatar: require("../assets/Avatars/avatarp1.jpg")
         },
         player2: {
             char: "O",
             name: "Player 2",
-            score: 0
+            score: 0,
+            avatar: require("../assets/Avatars/avatarp2.jpg")
         },
         turn: "X"
     })
@@ -36,25 +38,36 @@ export const GameContextProvider = (props) => {
                 char: "X",
                 name: "Player 1",
                 score: 0,
+                avatar: gameState.player1.avatar
             },
             player2: {
                 char: "O",
                 name: "Player 2",
                 score: 0,
+                avatar: gameState.player2.avatar
             },
             turn: "X"
+        })
+    }
+
+    const updatePlayerAvatar = (player, avatar) => {
+        setGameState({
+            ...gameState,
+            [player]: {
+                ...gameState[player],
+                avatar: avatar
+            }
         })
     }
 
     const roundComplete = (result) => {
         if(gameState.turn === gameState.player1.char && result !== "draw"){
             setGameState((prevGameState) =>({
-                ...gameState,
+                ...prevGameState,
                 board: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 player1: {
-                    char: prevGameState.player1.char,
-                    name: "Player 1",
-                    score: gameState.player1.score+1
+                    ...prevGameState.player1,
+                    score: prevGameState.player1.score+1
                 },
                 turn: "X",
                 result: "victor1",
@@ -62,12 +75,11 @@ export const GameContextProvider = (props) => {
         }
         else if(gameState.turn === gameState.player2.char && result !== "draw"){
             setGameState((prevGameState) =>({
-                ...gameState,
+                ...prevGameState,
                 board: [1, 2, 3, 4, 5, 6, 7, 8, 9],
                 player2: {
-                    char: prevGameState.player2.char,
-                    name: "Player 2",
-                    score: gameState.player2.score+1
+                    ...prevGameState.player2,
+                    score: prevGameState.player2.score+1
                 },
                 turn: "X",
                 result: "victor2",
@@ -111,7 +123,7 @@ export const GameContextProvider = (props) => {
     }
 
     return (
-        <GameContext.Provider value={{ gameState, updateBoard, resetBoard, roundComplete, switchTurns}}>
+        <GameContext.Provider value={{ gameState, updateBoard, resetBoard, roundComplete, switchTurns, updatePlayerAvatar }}>
             {props.children}
         </GameContext.Provider>
     )

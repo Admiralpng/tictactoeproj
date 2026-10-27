@@ -4,7 +4,7 @@ export const Title = styled.h1`
     color: ${(props) => props.theme.colors.text};
     font-size: 3rem;
     font-family: "Press Start 2P", system-ui;
-    text-wrap: nowrap;
+    text-wrap: wrap;
 `
 
 export const Subtitle = styled.h2`
@@ -16,6 +16,7 @@ export const Subtitle = styled.h2`
     ${(props) => props.theme.media.mobile}{
         line-height: 1.1;
         margin: 0;
+        text-wrap: wrap;
     }
 `
 

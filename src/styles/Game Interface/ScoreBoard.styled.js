@@ -15,6 +15,21 @@ export const PlayerScoreBoard = styled.div`
     -webkit-text-stroke: ${({playerTurn}) => playerTurn ? "1px black" : "1px transparent"};
     ,    
     ${(props) => props.theme.media.mobile} {
-      font-size: 0.8rem;
+      font-size: 0.3rem;
+      max-width: 125px;
+      line-height: 1.2;
     }
+`;
+
+export const PlayerAvatar = styled.img`
+  border-radius: 9999px;
+  width: 74px;
+  height: 74px;
+  margin-bottom: 25px;
+, 
+  ${(props) => props.theme.media.mobile} {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 18px;
+  }
 `
