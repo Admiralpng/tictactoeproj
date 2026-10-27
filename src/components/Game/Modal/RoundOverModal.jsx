@@ -26,7 +26,7 @@ export const RoundOverModal = () => {
                 </Subtitle>
                 <Subtitle className='victor'>
                     {gameState.result === "draw" ? "Round-Drawn"
-                        : `${gameState.player1.char === gameState.turn ? gameState.player1.name : gameState.player2.name} won this round!`
+                        : `${gameState.result === "victor1" ? gameState.player1.name : gameState.player2.name} won this round!`
                     }
                 </Subtitle>
             </ModalBody>

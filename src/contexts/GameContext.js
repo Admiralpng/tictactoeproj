@@ -56,7 +56,8 @@ export const GameContextProvider = (props) => {
                     name: "Player 1",
                     score: gameState.player1.score+1
                 },
-                turn: "X"
+                turn: "X",
+                result: "victor1",
             }))
         }
         else if(gameState.turn === gameState.player2.char && result !== "draw"){
@@ -68,7 +69,8 @@ export const GameContextProvider = (props) => {
                     name: "Player 2",
                     score: gameState.player2.score+1
                 },
-                turn: "X"
+                turn: "X",
+                result: "victor2",
             }))
         }
         // Draw Con
@@ -85,7 +87,7 @@ export const GameContextProvider = (props) => {
                 score: prevGameState.player2.score + 0.5
             },
             turn: "X",
-            result:"draw",
+            result: "draw",
         }))
         }
     }
