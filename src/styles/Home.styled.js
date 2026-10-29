@@ -10,4 +10,8 @@ export const HomeContainer = styled.div`
     height: 82.75vh;
     max-width: 100%;
     background-color: ${(props) => props.theme.colors.primary};
+    ${(props) => props.theme.media.mobile}{
+        row-gap: 12px;
+        font-size: 0.75rem
+    }
 `;

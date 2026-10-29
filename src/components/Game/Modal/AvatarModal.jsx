@@ -3,6 +3,7 @@ import { ModalHeader, ModalBody, ModalFooter } from '../../../styles/Game Interf
 import { Title, Subtitle } from '../../../styles/General.styled'
 import { GameContext } from '../../../contexts/GameContext'
 import { ModalContext } from '../../../contexts/ModalContext'
+import { SFXContext } from '../../../contexts/SoundEffectsContext.js'
 import { PlayButton, RestartButton } from '../ActionButtons'
 import { PlayerAvatar } from '../../../styles/Game Interface/ScoreBoard.styled'
 import avatarp1 from '../../../assets/Avatars/avatarp1.jpg'
@@ -17,6 +18,7 @@ const P2Avs = [avatarp2, avatarp2alt]
 export const SelectAvatar = ({ onConfirm }) => {
     const { gameState, updatePlayerAvatar } = useContext(GameContext)
     const { handleModal } = useContext(ModalContext)
+    const { hoverSfx, clickSfx, menuHover1Sfx, menuHover2Sfx } = useContext(SFXContext)
     const [p1Avatar, setP1Avatar] = useState(gameState.player1.avatar)
     const [p2Avatar, setP2Avatar] = useState(gameState.player2.avatar)
 
@@ -25,6 +27,7 @@ export const SelectAvatar = ({ onConfirm }) => {
         updatePlayerAvatar('player2', p2Avatar)
         if (onConfirm) {
             onConfirm()
+            clickSfx()
         } else {
             handleModal()
         }
@@ -41,7 +44,8 @@ export const SelectAvatar = ({ onConfirm }) => {
                     {P1Avs.map((avatar, index) => (
                         <div
                             key={`P1Avs-${index}`}
-                            onClick={() => setP1Avatar(avatar)}
+                            onClick={() => { clickSfx(handleConfirm); setP1Avatar(avatar) }}
+                            onMouseEnter={() => hoverSfx()}
                             style={{
                                 cursor: 'pointer',
                                 border: p1Avatar === avatar ? '3px solid #F7D51D' : '3px solid transparent',
@@ -52,10 +56,10 @@ export const SelectAvatar = ({ onConfirm }) => {
                                 justifyContent: 'center',
                                 width: '90px',
                                 height: '90px',
-                                flexShrink: 0
+                                flexShrink: 0,
                             }}
                         >
-                            <PlayerAvatar src={avatar} alt={`avatar option ${index + 1}`} style={{ marginBottom: 0 }} />
+                            <PlayerAvatar src={avatar} alt={`avatar option ${index + 1}`} style={{ marginBottom: 0, filter: "grayscale(0%)" }} />
                         </div>
                     ))}
                 </PfpOpts>
@@ -64,7 +68,8 @@ export const SelectAvatar = ({ onConfirm }) => {
                     {P2Avs.map((avatar, index) => (
                         <div
                             key={`p2-${index}`}
-                            onClick={() => setP2Avatar(avatar)}
+                            onClick={() => { clickSfx(handleConfirm); setP2Avatar(avatar) }}
+                            onMouseEnter={() => hoverSfx()}
                             style={{
                                 cursor: 'pointer',
                                 border: p2Avatar === avatar ? '3px solid #F7D51D' : '3px solid transparent',
@@ -75,17 +80,17 @@ export const SelectAvatar = ({ onConfirm }) => {
                                 justifyContent: 'center',
                                 width: '90px',
                                 height: '90px',
-                                flexShrink: 0
+                                flexShrink: 0,
                             }}
                         >
-                            <PlayerAvatar src={avatar} alt={`avatar option ${index + 1}`} style={{ marginBottom: 0 }} />
+                            <PlayerAvatar src={avatar} alt={`avatar option ${index + 1}`} style={{ marginBottom: 0, filter: "grayscale(0%)" }} />
                         </div>
                     ))}
                 </PfpOpts>
             </ModalBody>
             <ModalFooter style={{ marginTop: '20px' }}>
-                <PlayButton onClick={handleConfirm}>Start Game</PlayButton>
-                <RestartButton onClick={() => handleModal()}>Cancel</RestartButton>
+                <PlayButton onClick={handleConfirm} onMouseEnter={() => menuHover1Sfx()}>Start Game</PlayButton>
+                <RestartButton onClick={() => { handleModal(); clickSfx() }} onMouseEnter={() => menuHover2Sfx()}>Cancel</RestartButton>
             </ModalFooter>
         </div>
     )
