@@ -11,8 +11,8 @@ import avatarp2 from '../../../assets/Avatars/avatarp2.jpg'
 import avatarp2alt from '../../../assets/Avatars/avatarp2alt.jpg'
 import { PfpOpts } from '../../../styles/Game Interface/AvatarModal.styled'
 
-const P1Opts = [avatarp1, avatarp1alt]
-const P2Opts = [avatarp2, avatarp2alt]
+const P1Avs = [avatarp1, avatarp1alt]
+const P2Avs = [avatarp2, avatarp2alt]
 
 export const SelectAvatar = ({ onConfirm }) => {
     const { gameState, updatePlayerAvatar } = useContext(GameContext)
@@ -38,9 +38,9 @@ export const SelectAvatar = ({ onConfirm }) => {
             <ModalBody>
                 <Subtitle className="scoreboard">Player 1</Subtitle>
                 <PfpOpts>
-                    {P1Opts.map((avatar, index) => (
+                    {P1Avs.map((avatar, index) => (
                         <div
-                            key={`p1-${index}`}
+                            key={`P1Avs-${index}`}
                             onClick={() => setP1Avatar(avatar)}
                             style={{
                                 cursor: 'pointer',
@@ -50,8 +50,8 @@ export const SelectAvatar = ({ onConfirm }) => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                width: '74px',
-                                height: '74px',
+                                width: '90px',
+                                height: '90px',
                                 flexShrink: 0
                             }}
                         >
@@ -61,7 +61,7 @@ export const SelectAvatar = ({ onConfirm }) => {
                 </PfpOpts>
                 <Subtitle className="scoreboard" style={{ marginTop: '10px' }}>Player 2</Subtitle>
                 <PfpOpts>
-                    {P2Opts.map((avatar, index) => (
+                    {P2Avs.map((avatar, index) => (
                         <div
                             key={`p2-${index}`}
                             onClick={() => setP2Avatar(avatar)}
@@ -73,8 +73,8 @@ export const SelectAvatar = ({ onConfirm }) => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                width: '74px',
-                                height: '74px',
+                                width: '90px',
+                                height: '90px',
                                 flexShrink: 0
                             }}
                         >

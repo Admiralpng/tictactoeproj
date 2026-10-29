@@ -10,10 +10,11 @@ export const PlayerScoreBoard = styled.div`
     font-size: 1.4rem;
     font-weight: 800; 
     line-height: 1.4;
+    letter-spacing: -2.5px;
     color: ${(props) => props.theme.colors.text};
     -webkit-text-fill-color: ${({playerTurn}) => playerTurn ? "rgb(246, 248, 109)" : "${(props) => props.theme.colors.text}"};
     -webkit-text-stroke: ${({playerTurn}) => playerTurn ? "1px black" : "1px transparent"};
-    ,    
+    ,
     ${(props) => props.theme.media.mobile} {
       font-size: 0.3rem;
       max-width: 125px;
@@ -23,9 +24,13 @@ export const PlayerScoreBoard = styled.div`
 
 export const PlayerAvatar = styled.img`
   border-radius: 9999px;
-  width: 74px;
-  height: 74px;
+  width: 90px;
+  height: 90px;
   margin-bottom: 25px;
+  padding: 2px;
+  border: ${({playerTurn}) => playerTurn ? 
+  "2px solid rgb(246, 248, 109)" : `2px solid ${(props) => props.theme.colors.avatar}`};
+
 , 
   ${(props) => props.theme.media.mobile} {
     width: 65px;
