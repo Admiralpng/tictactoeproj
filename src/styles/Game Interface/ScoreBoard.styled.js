@@ -12,7 +12,7 @@ export const PlayerScoreBoard = styled.div`
     line-height: 1.4;
     letter-spacing: -2.5px;
     color: ${(props) => props.theme.colors.text};
-    -webkit-text-fill-color: ${({playerTurn}) => playerTurn ? "rgb(246, 248, 109)" : "${(props) => props.theme.colors.text}"};
+    -webkit-text-fill-color: ${({playerTurn}) => playerTurn ? "#655ec7" : `${(props) => props.theme.colors.text}`};
     -webkit-text-stroke: ${({playerTurn}) => playerTurn ? "1px black" : "1px transparent"};
     ,
     ${(props) => props.theme.media.mobile} {
@@ -28,8 +28,9 @@ export const PlayerAvatar = styled.img`
   height: 90px;
   margin-bottom: 25px;
   padding: 2px;
-  border: ${({playerTurn}) => playerTurn ? 
-  "2px solid rgb(246, 248, 109)" : `2px solid ${(props) => props.theme.colors.avatar}`};
+  box-sizing: border-box;
+  display: block;
+  border: ${({playerTurn, theme}) => playerTurn ? "3px solid #655ec7" : `2px solid ${theme.colors.avatar}`};
 
 , 
   ${(props) => props.theme.media.mobile} {

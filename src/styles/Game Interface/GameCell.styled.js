@@ -71,10 +71,10 @@ export const DefaultOutline = styled.span`
         font-family: 'Press Start 2P', cursive;
         font-size: 2.4rem;
         &:hover{
-            -webkit-text-stroke: 2px rgb(246, 248, 109);
+            -webkit-text-stroke: 2px #655ec7;
         }
         ${(props) => props.theme.media.mobile} {
-            -webkit-text-stroke: 2px rgb(246, 248, 109);    
+            -webkit-text-stroke: 2px #655ec7;    
             font-size: 10.5px;
         };
 `

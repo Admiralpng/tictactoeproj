@@ -8,7 +8,7 @@ export const lightTheme = {
 
         text: "#202124",
         border: "rgb(98, 95, 102)",
-        avatar: "#655ec7"
+        avatar: "transparent"
     },
     
     size: {
@@ -38,7 +38,7 @@ export const darkTheme = {
 
         text: "#f6f1eb",
         border: "transparent",
-        avatar: "##f6f1eb"
+        avatar: "#f6f1eb"
     },
     
     size: {

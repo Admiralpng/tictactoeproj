@@ -38,11 +38,13 @@ export const GameContextProvider = (props) => {
                 char: "X",
                 name: "Player 1",
                 score: 0,
+                avatar: gameState.player1.avatar
             },
             player2: {
                 char: "O",
                 name: "Player 2",
                 score: 0,
+                avatar: gameState.player2.avatar
             },
             turn: "X"
         })
