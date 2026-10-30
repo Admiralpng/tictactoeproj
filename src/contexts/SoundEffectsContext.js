@@ -1,18 +1,18 @@
 import { createContext } from "react";
 import { useSFX } from "../hooks/SFXHook";
-import click from "../assets/SFX/click.wav"
-import hover from "../assets/SFX/hover.wav"
-import menuHover1 from "../assets/SFX/MenuHover1.wav"
-import menuHover2 from "../assets/SFX/MenuHover2.wav"
-import victory from "../assets/SFX/VictoryChord3.wav"
-import draw from "../assets/SFX/Draw.wav"
-import reset from "../assets/SFX/Restart.wav"
+import click from "../assets/SFX/Interactives/click.wav"
+import hover from "../assets/SFX/Interactives/hover.wav"
+import menuHover1 from "../assets/SFX/Interactives/MenuHover1.wav"
+import menuHover2 from "../assets/SFX/Interactives/MenuHover2.wav"
+import victory from "../assets/SFX/Interactives/VictoryChord3.wav"
+import draw from "../assets/SFX/Interactives/Draw.wav"
+import reset from "../assets/SFX/Interactives/Restart.wav"
 
 export const SFXContext = createContext({});
 
 export const SFXContextProvider = ({children}) => {
     const options = {
-        volume: 0.05,
+        volume: 2,
     }
     
     const hoverSfx = useSFX(hover, options.volume);

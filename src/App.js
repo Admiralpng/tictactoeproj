@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { ThemeContext } from './contexts/ThemeContext.js';
 import { lightTheme, darkTheme } from './styles/GlobalTheme.js';
 import {GlobalStyles} from './styles/Global.styled.js';
+import { TrackPlayer } from './components/Game/Music/TrackPlayer.jsx'
 
 function App() {
   const {theme} = useContext(ThemeContext)
@@ -12,6 +13,7 @@ function App() {
     <ThemeProvider theme={mode}>
         <GlobalStyles />
         <Router />
+        <TrackPlayer />
     </ThemeProvider>
   );
 }

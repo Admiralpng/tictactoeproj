@@ -6,7 +6,7 @@ import { PlayButton } from '../components/Game/ActionButtons.jsx'
 import { SelectAvatar } from '../components/Game/Modal/AvatarModal.jsx'
 import { ModalContext } from '../contexts/ModalContext'
 import { GameContext } from '../contexts/GameContext'
-import { SFXContext } from '../contexts/SoundEffectsContext.js'
+import { SFXContext } from '../contexts/SoundEffectsContext.js';
 
 export const Home = () => {
     const navigate = useNavigate()

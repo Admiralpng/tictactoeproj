@@ -22,12 +22,12 @@ export const GameCell = ({ cell, index }) => {
 
         if (result) {
             roundComplete(result === "draw" ? "draw" : result)
-            handleModal(<RoundOverModal />);
             if (result === "draw") {
                 drawSfx();
             } else {
                 roundUpSfx();
             }
+            handleModal(<RoundOverModal />);
         };
     }
 

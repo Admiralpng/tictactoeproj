@@ -17,8 +17,15 @@ export const GameContextProvider = (props) => {
             score: 0,
             avatar: require("../assets/Avatars/avatarp2.jpg")
         },
-        turn: "X"
+        turn: "X",
     })
+
+    const changeTurn = () => {
+        setGameState((prevGameState) => ({
+            ...prevGameState,
+            turn: prevGameState.turn === "X" ? "O" : "X"
+        }));
+    }
 
     const updateBoard = (index) => {
         const updatedBoard = [...gameState.board];
@@ -123,7 +130,7 @@ export const GameContextProvider = (props) => {
     }
 
     return (
-        <GameContext.Provider value={{ gameState, updateBoard, resetBoard, roundComplete, switchTurns, updatePlayerAvatar }}>
+        <GameContext.Provider value={{ gameState, updateBoard, resetBoard, roundComplete, switchTurns, updatePlayerAvatar, changeTurn }}>
             {props.children}
         </GameContext.Provider>
     )

@@ -43,14 +43,13 @@ export const SelectAvatar = ({ onConfirm }) => {
                 <PfpOpts>
                     {P1Avs.map((avatar, index) => (
                         <div
-                            key={`P1Avs-${index}`}
-                            onClick={() => { clickSfx(handleConfirm); setP1Avatar(avatar) }}
+                            key={`p1-${index}`}
+                            onClick={() => { setP1Avatar(avatar); clickSfx(); }}
                             onMouseEnter={() => hoverSfx()}
                             style={{
                                 cursor: 'pointer',
-                                border: p1Avatar === avatar ? '3px solid #F7D51D' : '3px solid transparent',
+                                border: p1Avatar === avatar ? '3px solid #655ec7' : '3px solid transparent',
                                 borderRadius: '50%',
-                                boxShadow: p1Avatar === avatar ? '0 0 0 2px black' : 'none',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -59,7 +58,7 @@ export const SelectAvatar = ({ onConfirm }) => {
                                 flexShrink: 0,
                             }}
                         >
-                            <PlayerAvatar src={avatar} alt={`avatar option ${index + 1}`} style={{ marginBottom: 0, filter: "grayscale(0%)" }} />
+                            <PlayerAvatar src={avatar} alt={`avatar option ${index + 1}`} style={{ marginBottom: 0, filter: "grayscale(0%)", zIndex: 1 }} />
                         </div>
                     ))}
                 </PfpOpts>
@@ -68,13 +67,12 @@ export const SelectAvatar = ({ onConfirm }) => {
                     {P2Avs.map((avatar, index) => (
                         <div
                             key={`p2-${index}`}
-                            onClick={() => { clickSfx(handleConfirm); setP2Avatar(avatar) }}
+                            onClick={() => { setP2Avatar(avatar); clickSfx(); }}
                             onMouseEnter={() => hoverSfx()}
                             style={{
                                 cursor: 'pointer',
-                                border: p2Avatar === avatar ? '3px solid #F7D51D' : '3px solid transparent',
+                                border: p2Avatar === avatar ? '3px solid #655ec7' : '3px solid transparent',
                                 borderRadius: '50%',
-                                boxShadow: p2Avatar === avatar ? '0 0 0 2px black' : 'none',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -83,7 +81,7 @@ export const SelectAvatar = ({ onConfirm }) => {
                                 flexShrink: 0,
                             }}
                         >
-                            <PlayerAvatar src={avatar} alt={`avatar option ${index + 1}`} style={{ marginBottom: 0, filter: "grayscale(0%)" }} />
+                            <PlayerAvatar src={avatar} alt={`avatar option ${index + 1}`} style={{ marginBottom: 0, filter: "grayscale(0%)", zIndex: 1 }} />
                         </div>
                     ))}
                 </PfpOpts>

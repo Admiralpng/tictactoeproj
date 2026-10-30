@@ -23,11 +23,9 @@ export const useSFX = (url, sfxoptions = {}) => {
             const playPromise = audio.play();
             if (playPromise !== undefined) {
                 playPromise.catch(() => {
-                    // Autoplay blocked by browser - ignore silently
                 });
             }
         } catch (e) {
-            // Ignore errors
         }
     };
 

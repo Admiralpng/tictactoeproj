@@ -8,7 +8,20 @@ export const HeaderNav = styled.header`
   padding: 18px;
   max-width: 100%;
   background-color: ${(props) => props.theme.colors.primary};
-
+,
+  &> div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  &> div>span{
+    font-family: "Press Start 2P", system-ui;
+    font-size: 1.2rem;
+    color: ${(props) => props.theme.colors.text}
+  }
+,
   .logo {
     height: 50px;
     width: auto;
