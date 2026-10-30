@@ -9,6 +9,15 @@ export const MusicWrapper = styled.div`
     min-height: 10vh;
     left: 30px;
     column-gap: 8px;
+    ${(props) => props.theme.media.mobile} {
+        width: 100vw;
+        justify-content: space-between;
+        margin-top: 20px;
+        left: 0;
+        bottom: 0;
+        top: 10vh;
+        height: fit-content;
+    }
 ,
     &>button{
         display: flex; 
@@ -32,7 +41,6 @@ export const MusicWrapper = styled.div`
         padding: 6px;
         cursor: pointer;
         border: 4px solid #000;
-        font-size: 1.8rem;
     }
 
     &>button>svg:hover,
